@@ -14,3 +14,5 @@ RUN curl -sS https://getcomposer.org/installer | php && \
 # Install Node.js & Yarn
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt install -y nodejs
+
+RUN npm install bower
