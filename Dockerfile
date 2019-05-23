@@ -15,4 +15,4 @@ RUN curl -sS https://getcomposer.org/installer | php && \
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt install -y nodejs
 
-RUN npm install bower
+RUN npm install --global bower
