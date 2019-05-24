@@ -13,6 +13,8 @@ RUN curl -sS https://getcomposer.org/installer | php && \
 
 # Install Node.js & Yarn
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
-    apt install -y nodejs
+    apt install -y nodejs npm
 
-RUN npm install --quiet -g gulp bower && npm cache clean
+RUN npm install -g gulp bower
+RUN echo '{ "allow_root": true  }' > /root/.bowerrc
+
