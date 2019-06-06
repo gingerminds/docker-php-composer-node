@@ -1,11 +1,12 @@
 FROM php:7.2
 
 RUN apt update && \
-  apt install -y openssh-client rsync apt-transport-https build-essential gnupg git libxml2-dev php7.2-soap zip unzip zlib1g-dev && \
-  docker-php-ext-install soap 
+  apt install -y openssh-client rsync apt-transport-https build-essential gnupg git zip unzip zlib1g-dev libxml2-dev \
+    && pear install -a SOAP-0.13.0 \
   
 # Install additionnal PHP modules
 RUN docker-php-ext-install -j$(nproc) zip
+RUN docker-php-ext-install soap
 
 # Install composer and put binary into $PATH
 RUN curl -sS https://getcomposer.org/installer | php && \
