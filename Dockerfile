@@ -5,8 +5,7 @@ RUN apt update && \
     && pear install -a SOAP-0.13.0 \
   
 # Install additionnal PHP modules
-RUN docker-php-ext-install -j$(nproc) zip
-RUN docker-php-ext-install soap
+RUN docker-php-ext-install -j$(nproc) soap zip
 
 # Install composer and put binary into $PATH
 RUN curl -sS https://getcomposer.org/installer | php && \
