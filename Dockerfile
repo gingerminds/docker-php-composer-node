@@ -1,7 +1,7 @@
 FROM php:7.2
 
 RUN apt update && \
-  apt install -y openssh-client rsync apt-transport-https build-essential gnupg git zip unzip zlib1g-dev
+  apt install -y openssh-client rsync apt-transport-https build-essential gnupg git libxml2-dev php-soap zip unzip zlib1g-dev
   
 # Install additionnal PHP modules
 RUN docker-php-ext-install -j$(nproc) zip
