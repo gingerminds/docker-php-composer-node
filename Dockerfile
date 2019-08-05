@@ -9,10 +9,11 @@ RUN apt-get update \
     zip unzip \
     git
 # install php dependencies
-RUN pecl install imagick \
-    && docker-php-ext-enable imagick \
-    && docker-php-ext-install mcrypt pdo_mysql \
-    && docker-php-ext-install gd
+RUN pecl install imagick mcrypt\
+    && docker-php-ext-install -j$(nproc) iconv \
+    && docker-php-ext-configure gd \
+    && docker-php-ext-install -j$(nproc) gd \
+    && docker-php-ext-enable mcrypt
 
 
 
