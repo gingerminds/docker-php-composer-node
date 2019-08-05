@@ -2,12 +2,16 @@ FROM php:7.2
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
+    openssh-client \
+    rsync \
+    apt-transport-https \
     imagemagick \
     libmcrypt-dev \
     libmagickwand-dev \
     openssl \
     zip unzip \
     git
+
 # install php dependencies
 RUN pecl install imagick mcrypt-1.0.2 \
     && docker-php-ext-install -j$(nproc) iconv \
