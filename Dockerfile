@@ -12,8 +12,8 @@ RUN curl -sS https://getcomposer.org/installer | php && \
     ln -s /usr/local/bin/composer.phar /usr/local/bin/composer
 
 # Install Node.js & Yarn
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
-    apt install -y nodejs npm
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+    apt install -y nodejs
 
 RUN docker-php-ext-configure gd
 RUN docker-php-ext-install gd
