@@ -36,7 +36,7 @@ RUN docker-php-ext-install -j$(nproc) \
     opcache \
     pcntl \
     pdo_mysql \
-    soap 
+    soap \
     zip
 
 # Install composer and put binary into $PATH
