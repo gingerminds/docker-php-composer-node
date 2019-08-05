@@ -25,7 +25,8 @@ RUN apt update && apt install -y \
     zlib1g-dev \
   
 # Install additionnal PHP modules
-RUN docker-php-ext-install -j$(nproc) bcmath \
+RUN docker-php-ext-install -j "$(nproc)" \
+    bcmath \
     curl \
     exif \
     gd \
