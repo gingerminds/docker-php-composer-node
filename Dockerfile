@@ -9,7 +9,7 @@ RUN apt-get update \
     zip unzip \
     git
 # install php dependencies
-RUN pecl install imagick mcrypt\
+RUN pecl install imagick mcrypt-1.0.2 \
     && docker-php-ext-install -j$(nproc) iconv \
     && docker-php-ext-configure gd \
     && docker-php-ext-install -j$(nproc) gd \
@@ -21,7 +21,7 @@ RUN pecl install imagick mcrypt\
 #   apt install -y openssh-client rsync apt-transport-https build-essential gnupg2 git imagemagick libpng-dev libxml2-dev node-gyp zip unzip zlib1g-dev
   
 # Install additionnal PHP modules
-# RUN docker-php-ext-install -j$(nproc) mbstring mysqli pdo_mysql soap zip
+# RUN docker-php-ext-install -j$(nproc)  mysqli pdo_mysql soap zip
 
 # Install composer and put binary into $PATH
 # RUN curl -sS https://getcomposer.org/installer | php && \
