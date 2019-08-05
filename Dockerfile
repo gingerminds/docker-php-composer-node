@@ -2,6 +2,7 @@ FROM php:7.2
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
+    imagemagick \
     libmcrypt-dev \
     libmagickwand-dev \
     openssl \
