@@ -5,8 +5,6 @@ RUN apt update && \
   
 # Install additionnal PHP modules
 RUN docker-php-ext-install -j$(nproc) mbstring mysqli pdo_mysql soap zip
-RUN docker-php-ext-configure gd
-RUN docker-php-ext-install gd
 
 # Install composer and put binary into $PATH
 RUN curl -sS https://getcomposer.org/installer | php && \
@@ -16,6 +14,9 @@ RUN curl -sS https://getcomposer.org/installer | php && \
 # Install Node.js & Yarn
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt install -y nodejs npm
+    
+RUN docker-php-ext-configure gd
+RUN docker-php-ext-install gd
 
 RUN npm install -g gulp bower
 RUN echo '{ "allow_root": true  }' > /root/.bowerrc
