@@ -5,16 +5,20 @@ RUN apt-get update \
     openssh-client \
     rsync \
     apt-transport-https \
+    build-essential \
     imagemagick \
     libmcrypt-dev \
     libmagickwand-dev \
     openssl \
-    zip unzip \
-    git
+    zip \ 
+    unzip \
+    git \
+    gnupg \
+    zlib1g-dev
 
 # install php dependencies
 RUN pecl install imagick mcrypt-1.0.2 \
-    && docker-php-ext-install -j$(nproc) iconv \
+    && docker-php-ext-install -j$(nproc) iconv soap zip \
     && docker-php-ext-configure gd \
     && docker-php-ext-install -j$(nproc) gd pdo_mysql \
     && docker-php-ext-enable mcrypt
@@ -27,7 +31,7 @@ RUN curl -sS https://getcomposer.org/installer | php && \
 
 # Install Node.js & Yarn
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
-    # apt install -y nodejs
+    apt install -y nodejs npm
 
 RUN npm install -g gulp bower
 RUN echo '{ "allow_root": true  }' > /root/.bowerrc
