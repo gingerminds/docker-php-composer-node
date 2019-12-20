@@ -9,6 +9,7 @@ RUN apt-get update \
     imagemagick \
     libmcrypt-dev \
     libmagickwand-dev \
+    libpng-dev \ 
     libzip-dev \
     openssl \
     zip \ 
