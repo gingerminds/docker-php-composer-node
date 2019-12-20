@@ -19,10 +19,10 @@ RUN apt-get update \
 
 # install php dependencies
 RUN pecl install imagick mcrypt-1.0.2 \
-    && docker-php-ext-install -j$(nproc) iconv soap zip \
+    && docker-php-ext-install -j$(nproc) exif iconv soap zip \
     && docker-php-ext-configure gd \
     && docker-php-ext-install -j$(nproc) gd pdo_mysql \
-    && docker-php-ext-enable mcrypt
+    && docker-php-ext-enable mcrypt exif
 
 # Install composer and put binary into $PATH
 RUN curl -sS https://getcomposer.org/installer | php && \
