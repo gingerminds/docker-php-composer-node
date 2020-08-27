@@ -16,7 +16,18 @@ RUN apt-get update \
     unzip \
     git \
     gnupg \
-    zlib1g-dev
+    zlib1g-dev \
+    libgtk2.0-0 \
+    libgtk-3-0 \
+    libgbm-dev \
+    libnotify-dev \
+    libgconf-2-4 \
+    libnss3 \
+    libxss1 \
+    libasound2 \
+    libxtst6 \
+    xauth \
+    xvfb
 
 # install php dependencies
 RUN pecl install imagick mcrypt-1.0.2 \
